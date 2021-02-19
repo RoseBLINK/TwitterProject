@@ -413,6 +413,12 @@ void menuManage::chooseByName()
     cin >> inputName;
 
     PersonalContact _pcon = controller.getContact().getPersonalContact(inputName);
+    // Vector로 받아오고,
+    // Vector에 아무내용 없으면, 해당하는 이름이 없습니다 반환
+    // Vector에 내용이 있으면, Vector 개수만큼 정보 출력
+    // 벡터 순회
+
+
     printPersonalContact(_pcon);
 }
 

@@ -67,7 +67,7 @@ PersonalContact contact::getPersonalContact(int idx)
     return mCont[idx];
 }
 
-PersonalContact contact::getPersonalContact(string name)
+vector<PersonalContact> contact::getPersonalContact(string name)
 {
     for ( int i = 0; i < mCont.size(); ++i )
     {
