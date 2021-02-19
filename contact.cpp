@@ -69,22 +69,14 @@ PersonalContact contact::getPersonalContact(int idx)
 
 PersonalContact contact::getPersonalContact(string name)
 {
-bool bFind = false;
-
     for ( int i = 0; i < mCont.size(); ++i )
     {
-        bFind = true;
-
         // 연관 컨테이너 ( key - value ) -> map
         // 시퀀스 컨테이너 ( value ) -> vector, array
         if ( mCont[i].name == name )
         {
             return mCont[i];
         }
-    }
-
-    if ( !bFind )
-    {
     }
 }
 
