@@ -74,7 +74,10 @@ void MenuCommand::runOwnerMenu()
             {
                 menuManager.showOwnerInfoFix();
 
-                menuManager.chooseFixMenu();
+                int _input;
+                cin >> _input;
+
+                menuManager.chooseFixMenu(_input);
                 break;
             }
         case 4:

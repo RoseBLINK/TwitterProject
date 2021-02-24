@@ -16,7 +16,7 @@ public:
 public:
     // for Owner, show interface
     void showOwnerMenu();
-    void printPersonalContact(PersonalContact _pcon);
+    void printPersonalContact(PersonalContact aasdsad);
 
 public:
     // for Owner, functions
@@ -28,7 +28,7 @@ public:
     void fixOwnerEmail();
     void fixOwnerAddress();
     void fixOwnerAccount();
-    void chooseFixMenu();
+    void chooseFixMenu(int _input);
 
 public:
     // for Contact

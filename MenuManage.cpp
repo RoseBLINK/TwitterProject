@@ -4,6 +4,15 @@
 #include "owner.h"
 #include "contact.h"
 using namespace std;
+
+enum EN_FIX_OWNER
+{
+    enName=1,
+    enNumber,
+    enEmail,
+    enAddres,
+};
+
 void menuManage::wrongChoice()
 {
     cout << "잘못된 입력입니다. 다시 선택 해주세요.";
@@ -73,6 +82,7 @@ void menuManage::fixOwnerName()
     cout << "트위터 계정: " << controller.getOwner().twitter_account << endl;
     cout << endl;
 }
+
 void menuManage::fixOwnerNumber()
 {
     cout << "현재 소유자 전화번호: " << controller.getOwner().phone_number << endl;
@@ -96,6 +106,7 @@ void menuManage::fixOwnerNumber()
     cout << "트위터 계정: " << controller.getOwner().twitter_account << endl;
     cout << endl;
 }
+
 void menuManage::fixOwnerEmail()
 {
     cout << "현재 소유자 이메일: " << controller.getOwner().email << endl;
@@ -233,6 +244,7 @@ void menuManage::showMainMenu()
     cout << "2. 연락처 관리" << endl;
     cout << "3. 프로그램 종료" << endl;
 }
+
 void menuManage::showOwnerMenu()
 {
     cout << "소유자 관리 기능" << endl;
@@ -253,23 +265,20 @@ void menuManage::showOwnerInfoFix() // ownerMenu3
     cout << "6. 이전 메뉴로" << endl;
 }
 
-void menuManage::chooseFixMenu() //cin이 아닌 함수 인자로 받도록 고쳐보기
+void menuManage::chooseFixMenu(int _input) //cin이 아닌 함수 인자로 받도록 고쳐보기
 {
-    int _input;
-    cin >> _input;
-
     switch ( _input )
     {
-    case 1:
+    case enName:
         fixOwnerName();
         break;
-    case 2:
+    case enNumber:
         fixOwnerNumber();
         break;
-    case 3:
+    case enEmail:
         fixOwnerEmail();
         break;
-    case 4:
+    case enAddres:
         fixOwnerAddress();
         break;
     case 5:
@@ -360,7 +369,27 @@ void menuManage::fixContactNumber()
     int idx;
     cin >> idx;
 
+    // 1. 함수를 이용한 예외처리
+    bool bValid = controller.getContact().isValid(idx);
+    if ( !bValid )
+    {
+        cout <<"잘못된 값을 입력~~";
+        return;
+    }
+
     PersonalContact _pcon = controller.getContact().getPersonalContact(idx);
+
+
+    // 2. getPersonalContact에서 값 채워 나오기 (함수 안에 예외처리까지 포함)
+    PersonalContact sCont;
+    bool bNormal = controller.getContact().getPersonalContact(idx, sCont);
+    if ( !bNormal )
+    {
+        cout << "잘못된 값을 입력~~";
+        return;
+    }
+
+
 
     cout << "선택하신 연락처(전화번호): " << controller.getContact().mCont[idx].phone_number << endl;
     cout << "어떤 전화번호로 수정 하시겠습니까?" << endl;
@@ -434,13 +463,13 @@ void menuManage::chooseIndexName()
     cout << "3. 이전 화면으로" << endl;
 }
 
-void menuManage::printPersonalContact(PersonalContact _pcon)
+void menuManage::printPersonalContact(PersonalContact aasdsad)
 {
     cout << "선택한 연락처 정보: " << endl;
-    cout << "이름: " << _pcon.name << endl;
-    cout << "전화번호: " << _pcon.phone_number << endl;
-    cout << "이메일: " << _pcon.email << endl;
-    cout << "주소: " << _pcon.address << endl;
+    cout << "이름: " << aasdsad.name << endl;
+    cout << "전화번호: " << aasdsad.phone_number << endl;
+    cout << "이메일: " << aasdsad.email << endl;
+    cout << "주소: " << aasdsad.address << endl;
 }
 
 
@@ -474,39 +503,23 @@ void menuManage::chooseByName()
     string inputName; //조회할 이름
     cin >> inputName;
 
-    vector<PersonalContact> _pcon = controller.getContact().getPersonalContact(inputName);
+
+    vector<PersonalContact> vCon = controller.getContact().getPersonalContact(inputName);
     // Vector로 받아오고,
     // Vector에 아무내용 없으면, 해당하는 이름이 없습니다 반환
     // Vector에 내용이 있으면, Vector 개수만큼 정보 출력
     // 벡터 순회
 
-    빈 벡터 생성
-
-    for (int i = 0; i < controller.getContact().cont.size(); i++) // 순회
-    {
-
-        if (inputName == 맵내의 데이터 이름)
-        {
-            벡터에 데이터 추가;
-        }
-    }
- 
-
-    if (벡터.size != 0)
-    {
-        for (int i = 0; i < 벡터.size(); i++)
-        {
-            cout << 벡터[i] << endl;
-        }
-    }
-    if (벡터.size = 0)
+    if ( vCon.size() == 0 )
     {
         cout << "검색하신 이름의 연락처가 존재하지 않습니다" << endl;
+        return;
     }
-
-
-
-    printPersonalContact(_pcon);
+ 
+    for ( int i = 0; i < vCon.size(); i++ )
+    {
+        printPersonalContact(vCon[i]);
+    }
 }
 
 void menuManage::eraseContact()

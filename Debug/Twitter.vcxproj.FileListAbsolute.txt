@@ -1,2 +1,4 @@
 C:\Users\RoseBLINK\Desktop\Twitter\Debug\Twitter.exe
 C:\Users\RoseBLINK\Desktop\Twitter\Debug\Twitter.pdb
+C:\Users\RoseBLINK\Desktop\C++\Twitter\Debug\Twitter.exe
+C:\Users\RoseBLINK\Desktop\C++\Twitter\Debug\Twitter.pdb

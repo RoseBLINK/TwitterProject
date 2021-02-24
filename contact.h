@@ -17,6 +17,7 @@ public:
 
     void insertContact(string _name, string _phone_number, string _email, string _address);
     bool getPersonalContact(int idx, PersonalContact& cont);
+    bool isValid(int idx);
     PersonalContact getPersonalContact(int idx);
     //PersonalContact getPersonalContact(string name);
     vector<PersonalContact> getPersonalContact(string name);
