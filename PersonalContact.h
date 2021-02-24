@@ -6,7 +6,7 @@ using namespace std;
 struct PersonalContact
 {
 public:
-    PersonalContact() {}
+    PersonalContact() {} //오버로드 걸리는거 Q
 
     PersonalContact(int _id, string _name, string _phone, string _email, string _address)
     {

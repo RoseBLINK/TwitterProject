@@ -12,7 +12,7 @@ class menuManage
 
 public:
     void showMainMenu();
-
+    void wrongChoice();
 public:
     // for Owner, show interface
     void showOwnerMenu();
@@ -22,13 +22,13 @@ public:
     // for Owner, functions
     void inputOwnerInfo();
     void outputOwnerInfo(); //소유자 정보 조회 메뉴
-    void ownerInfoFix(); //소유자 정보 수정 메뉴
+    void showOwnerInfoFix(); //소유자 정보 수정 메뉴
     void fixOwnerName();
     void fixOwnerNumber();
     void fixOwnerEmail();
     void fixOwnerAddress();
     void fixOwnerAccount();
-
+    void chooseFixMenu();
 
 public:
     // for Contact
@@ -39,6 +39,7 @@ public:
     void addContact();
     void outputContactList();
     void searchPersonalContact();
+    void showContactFix();
     void contactFix();
     void fixContactName();
     void fixContactNumber();

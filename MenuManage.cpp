@@ -4,6 +4,10 @@
 #include "owner.h"
 #include "contact.h"
 using namespace std;
+void menuManage::wrongChoice()
+{
+    cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+}
 
 void menuManage::inputOwnerInfo()
 {
@@ -238,7 +242,7 @@ void menuManage::showOwnerMenu()
     cout << "4. 이전 화면" << endl;
 }
 
-void menuManage::ownerInfoFix() // ownerMenu3
+void menuManage::showOwnerInfoFix() // ownerMenu3
 {
     cout << "소유자 정보 수정 메뉴" << endl;
     cout << "1. 소유자 이름 수정" << endl;
@@ -247,6 +251,36 @@ void menuManage::ownerInfoFix() // ownerMenu3
     cout << "4. 소유자 주소 수정" << endl;
     cout << "5. 소유자 트위터 계정 수정" << endl;
     cout << "6. 이전 메뉴로" << endl;
+}
+
+void menuManage::chooseFixMenu() //cin이 아닌 함수 인자로 받도록 고쳐보기
+{
+    int _input;
+    cin >> _input;
+
+    switch ( _input )
+    {
+    case 1:
+        fixOwnerName();
+        break;
+    case 2:
+        fixOwnerNumber();
+        break;
+    case 3:
+        fixOwnerEmail();
+        break;
+    case 4:
+        fixOwnerAddress();
+        break;
+    case 5:
+        fixOwnerAccount();
+        break;
+    case 6:
+        return;
+    default:
+        cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+        break;
+    }
 }
 
 void menuManage::showContactMenu()
@@ -261,13 +295,40 @@ void menuManage::showContactMenu()
     cout << "7. 이전 메뉴로" << endl;
 }
 
-void menuManage::contactFix() //contactMenu4
+void menuManage::showContactFix() //contactMenu4
 {
     cout << "1. 연락처 이름 수정" << endl;
     cout << "2. 연락처 전화번호 수정" << endl;
     cout << "3. 연락처 이메일 수정" << endl;
     cout << "4. 연락처 주소 수정" << endl;
     cout << "5. 이전 메뉴로" << endl;
+}
+
+void menuManage::contactFix()
+{
+    int input_;
+    cin >> input_;
+
+    switch ( input_ )
+    {
+    case 1:
+        fixContactName();
+        break;
+    case 2:
+        fixContactNumber();
+        break;
+    case 3:
+        fixContactEmail();
+        break;
+    case 4:
+        fixContactAddress();
+        break;
+    case 5:
+        return;
+    default:
+        cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+        break;
+    }
 }
 
 void menuManage::fixContactName()
@@ -382,6 +443,7 @@ void menuManage::printPersonalContact(PersonalContact _pcon)
     cout << "주소: " << _pcon.address << endl;
 }
 
+
 void menuManage::chooseByIndex()
 {
     cout << "조회하실 연락처의 index를 입력 하세요: ";
@@ -412,11 +474,36 @@ void menuManage::chooseByName()
     string inputName; //조회할 이름
     cin >> inputName;
 
-    PersonalContact _pcon = controller.getContact().getPersonalContact(inputName);
+    vector<PersonalContact> _pcon = controller.getContact().getPersonalContact(inputName);
     // Vector로 받아오고,
     // Vector에 아무내용 없으면, 해당하는 이름이 없습니다 반환
     // Vector에 내용이 있으면, Vector 개수만큼 정보 출력
     // 벡터 순회
+
+    빈 벡터 생성
+
+    for (int i = 0; i < controller.getContact().cont.size(); i++) // 순회
+    {
+
+        if (inputName == 맵내의 데이터 이름)
+        {
+            벡터에 데이터 추가;
+        }
+    }
+ 
+
+    if (벡터.size != 0)
+    {
+        for (int i = 0; i < 벡터.size(); i++)
+        {
+            cout << 벡터[i] << endl;
+        }
+    }
+    if (벡터.size = 0)
+    {
+        cout << "검색하신 이름의 연락처가 존재하지 않습니다" << endl;
+    }
+
 
 
     printPersonalContact(_pcon);
@@ -437,3 +524,5 @@ void menuManage::eraseContact()
 
     cout << "인덱스 (" << idx << ")가 삭제되었습니다." <<  endl;
 }
+
+

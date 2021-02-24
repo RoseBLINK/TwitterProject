@@ -43,7 +43,7 @@ void MenuCommand::runMainMenu()
         }
         default:
         {
-            cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+            menuManager.wrongChoice();
             break;
         }
         }
@@ -72,41 +72,17 @@ void MenuCommand::runOwnerMenu()
         case 3:
             while (true)
             {
-                menuManager.ownerInfoFix();
+                menuManager.showOwnerInfoFix();
 
-                int _input;
-                cin >> _input;
-
-                switch (_input)
-                {
-                case 1:
-                    menuManager.fixOwnerName();
-                    break;
-                case 2:
-                    menuManager.fixOwnerNumber();
-                    break;
-                case 3:
-                    menuManager.fixOwnerEmail();
-                    break;
-                case 4:
-                    menuManager.fixOwnerAddress();
-                    break;
-                case 5:
-                    menuManager.fixOwnerAccount();
-                    break;
-                case 6:
-                    return;
-                default:
-                    cout << "잘못된 입력입니다. 다시 선택 해주세요.";
-                    break;
-                }
+                menuManager.chooseFixMenu();
+                break;
             }
         case 4:
             //runMainMenu();
             //bExitFlag = true;
             return;
         default:
-            cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+            menuManager.wrongChoice();
             break;
         }
         /*if ( bExitFlag )
@@ -137,31 +113,9 @@ void MenuCommand::runContactMenu()
         case 4:
             while (true)
             {
+                menuManager.showContactFix();
                 menuManager.contactFix();
-
-                int input_;
-                cin >> input_;
-
-                switch ( input_ )
-                {
-                case 1:
-                    menuManager.fixContactName();
-                    break;
-                case 2:
-                    menuManager.fixContactNumber();
-                    break;
-                case 3:
-                    menuManager.fixContactEmail();
-                    break;
-                case 4:
-                    menuManager.fixContactAddress();
-                    break;
-                case 5:
-                    return;
-                default:
-                    cout << "잘못된 입력입니다. 다시 선택 해주세요.";
-                    break;
-                }
+                break;
             }
         //case 5: 연락처 복사
         case 6:
@@ -170,7 +124,7 @@ void MenuCommand::runContactMenu()
         case 7:
             return;
         default:
-            cout << "잘못된 입력입니다. 다시 선택 해주세요.";
+            menuManager.wrongChoice();
             break;
         }
     }

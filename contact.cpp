@@ -29,19 +29,19 @@ void contact::insertContact(string name, string phone_number, string email, stri
     m_idx++;
 }
 
-bool contact::isValid(int idx)
-{
-    if ( mCont.size() <= idx )
-    {
-        // 문제가 있는 상황
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-
-}
+//bool contact::isValid(int idx)
+//{
+//    if ( mCont.size() <= idx )
+//    {
+//        // 문제가 있는 상황
+//        return false;
+//    }
+//    else
+//    {
+//        return true;
+//    }
+//
+//}
 
 bool contact::getPersonalContact(int idx, PersonalContact& cont)
 {
@@ -75,7 +75,17 @@ vector<PersonalContact> contact::getPersonalContact(string name)
         // 시퀀스 컨테이너 ( value ) -> vector, array
         if ( mCont[i].name == name )
         {
-            return mCont[i];
+            //return mCont[i];
+            
+            // 빈벡터 생성
+            vector<PersonalContact> cntct;
+
+            //데이터 넣기
+            cntct.push_back(mCont[i]);
+
+            //벡터 자체를 리턴
+            return cntct;
+            
         }
     }
 }
