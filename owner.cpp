@@ -9,15 +9,30 @@ owner::owner()
 
 }
 
+owner::owner(string _name, string _phone_number, string _email, string _address, string _twitter_account, int _PersonIdx) : PersonInfo(_PersonIdx)
+{
+    name = _name;
+    phone_number = _phone_number;
+    email = _email;
+    address = _address;
+    this->twitter_account = _twitter_account;
+}
+
 owner::~owner()
 {
 
 }
-void owner::insertOwnerInfo(string name, string phone_number, string email, string address, string twitter_account)
+
+string owner::getTwitterAccount()
 {
-    this->name = name;
-    this->phone_number = phone_number;
-    this->email = email;
-    this->address = address;
-    this->twitter_account = twitter_account;
+    return twitter_account;
+}
+
+void owner::insertOwnerInfo(string _name, string _phone_number, string _email, string _address, string _twitter_account)
+{
+    name = _name;
+    phone_number = _phone_number;
+    email = _email;
+    address = _address;
+    this->twitter_account = _twitter_account;
 }

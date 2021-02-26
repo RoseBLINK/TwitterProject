@@ -145,6 +145,7 @@
     <ClCompile Include="MenuManage.cpp" />
     <ClCompile Include="owner.cpp" />
     <ClCompile Include="PersonalContact.cpp" />
+    <ClCompile Include="PersonInfo.cpp" />
     <ClCompile Include="Twitter.cpp" />
     <ClCompile Include="TwitterClass.cpp" />
   </ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="MenuManage.h" />
     <ClInclude Include="owner.h" />
     <ClInclude Include="PersonalContact.h" />
+    <ClInclude Include="PersonInfo.h" />
     <ClInclude Include="TwitterClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

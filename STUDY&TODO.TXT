@@ -14,3 +14,22 @@ TODO
 이공계
 이 - 자연과학(화학과)  -> 코딩
 공 - 공학(기계공학, 건축공학, 컴퓨터공학...화학공학)
+
+
+2/26
+
+
+TODO
+- MenuManage에서 contact or owner의 idx로 직접 접근하는 것들 없애기
+- 연락처 복사
+
+연락처 복사
+복사할 연락처의 인덱스를 입력하세요.
+
+contact::copyContact
+getContact(idx, pCon)
+insertContact(pCon.name)
+
+
+다음주 할것
+예외처리, 파일 입출력, 템플릿

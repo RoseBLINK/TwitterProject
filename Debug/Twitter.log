@@ -2,5 +2,16 @@
 C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(34,23): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
 C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(62,23): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
 C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(81,24): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(100,23): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(100,22): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\RoseBLINK\Desktop\C++\Twitter\contact.cpp(111,23): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+  Controller.cpp
+  MenuCommand.cpp
+  MenuManage.cpp
+C:\Users\RoseBLINK\Desktop\C++\Twitter\MenuManage.cpp(211,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\RoseBLINK\Desktop\C++\Twitter\MenuManage.cpp(594,24): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  owner.cpp
+  PersonalContact.cpp
+  PersonInfo.cpp
+  Twitter.cpp
+  코드를 생성하고 있습니다...
   Twitter.vcxproj -> C:\Users\RoseBLINK\Desktop\C++\Twitter\Debug\Twitter.exe

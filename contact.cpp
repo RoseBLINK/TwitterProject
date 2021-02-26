@@ -82,7 +82,7 @@ vector<PersonalContact> contact::getPersonalContact(string name)
     {
         // 연관 컨테이너 ( key - value ) -> map
         // 시퀀스 컨테이너 ( value ) -> vector, array
-        if ( mCont[i].name == name )
+        if ( mCont[i].getName() == name )
         {
             //return mCont[i];
 
@@ -93,6 +93,17 @@ vector<PersonalContact> contact::getPersonalContact(string name)
 
     //벡터 자체를 리턴
     return cntct;
+}
+
+bool contact::setPersonalContact(int idx, const PersonalContact& pCont)
+{
+    if (mCont.size() <= idx)
+    {
+        return false;
+    }
+
+    mCont[idx] = pCont;
+    return true;
 }
 
 bool contact::erasePersonalContact(int idx)

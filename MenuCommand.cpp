@@ -15,6 +15,13 @@ MenuCommand::~MenuCommand()
 
 }
 
+enum en_mainMenu
+{
+    en_ownerMenu = 1,
+    en_ContactMenu,
+    en_exit,
+};
+
 void MenuCommand::runMainMenu()
 {
     while ( true )
@@ -26,17 +33,17 @@ void MenuCommand::runMainMenu()
 
         switch ( input )
         {
-        case 1:
+        case en_ownerMenu:
         {
             runOwnerMenu();
             break;
         }
-        case 2:
+        case en_ContactMenu:
         {
             runContactMenu();
             break;
         }
-        case 3:
+        case en_exit:
         {
             cout << "프로그램을 종료합니다.";
             return;
@@ -51,6 +58,14 @@ void MenuCommand::runMainMenu()
 
 }
 
+enum en_owner
+{
+    en_input_owner = 1,
+    en_output_owner,
+    en_fix_owner,
+    en_previous_owner
+};
+
 void MenuCommand::runOwnerMenu()
 {
     //bool bExitFlag = false;
@@ -63,13 +78,13 @@ void MenuCommand::runOwnerMenu()
 
         switch ( input )
         {
-        case 1:
+        case en_input_owner:
             menuManager.inputOwnerInfo();
             break;
-        case 2:
+        case en_output_owner:
             menuManager.outputOwnerInfo();
             break;
-        case 3:
+        case en_fix_owner:
             while (true)
             {
                 menuManager.showOwnerInfoFix();
@@ -80,7 +95,7 @@ void MenuCommand::runOwnerMenu()
                 menuManager.chooseFixMenu(_input);
                 break;
             }
-        case 4:
+        case en_previous_owner:
             //runMainMenu();
             //bExitFlag = true;
             return;
@@ -93,6 +108,17 @@ void MenuCommand::runOwnerMenu()
     }
 }
 
+enum EN_ContactMenu
+{
+    en_add = 1,
+    en_output,
+    en_search,
+    en_fix,
+    en_copy,
+    en_erase,
+    en_previous
+};
+
 void MenuCommand::runContactMenu()
 {
     while ( true )
@@ -104,27 +130,28 @@ void MenuCommand::runContactMenu()
 
         switch ( input )
         {
-        case 1:
+        case en_add:
             menuManager.addContact();
             break;
-        case 2:
+        case en_output:
             menuManager.outputContactList();
             break;
-        case 3:
+        case en_search:
             menuManager.searchPersonalContact();
             break;
-        case 4:
+        case en_fix:
             while (true)
             {
                 menuManager.showContactFix();
                 menuManager.contactFix();
                 break;
             }
+            break;
         //case 5: 연락처 복사
-        case 6:
+        case en_erase:
             menuManager.eraseContact();
             break;
-        case 7:
+        case en_previous:
             return;
         default:
             menuManager.wrongChoice();

@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "PersonInfo.h"
 using namespace std;
 
-struct PersonalContact
+class PersonalContact : public PersonInfo
 {
 public:
     PersonalContact() {} //오버로드 걸리는거 Q
@@ -18,11 +19,12 @@ public:
     }
 
     ~PersonalContact() {}
+    
+    int getId();
 
+
+
+private:
     int id;
-    string name;
-    string phone_number;
-    string email;
-    string address;
 };
 

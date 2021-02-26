@@ -8,3 +8,5 @@ Controller::~Controller()
 {
 }
 
+
+owner o;

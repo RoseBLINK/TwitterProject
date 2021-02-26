@@ -22,6 +22,8 @@ public:
     //PersonalContact getPersonalContact(string name);
     vector<PersonalContact> getPersonalContact(string name);
 
+    bool setPersonalContact(int idx, const PersonalContact& pCont);
+
     bool erasePersonalContact(int idx);
 
 public:
